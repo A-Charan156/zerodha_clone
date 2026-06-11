@@ -4,7 +4,7 @@ function Card({ image, title, price }) {
         <>
             <div style={{
                 border: "1px red solid",
-                width: "450px",
+                width: "400px",
                 textAlign: "center",
                 borderRadius: "10px"
             }}>
