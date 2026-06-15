@@ -4,7 +4,7 @@ function Products() {
     const [products, setproducts] = useState([])
     // fetch the product data from fakestore api
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
+        fetch('http://localhost:3000/products')
             .then(response => response.json())
             .then(data => setproducts(data));
     }, []);

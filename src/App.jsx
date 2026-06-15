@@ -1,19 +1,35 @@
+import { useState } from 'react'
 import './App.css'
 import Header from './Header'
 import Products from './Products.jsx'
+import Register from './Register.jsx'
+import Login from './Login.jsx'
+import Home from './Home.jsx'
+import About from './About.jsx'
+import { Routes, Route } from 'react-router-dom'
+
 function App() {
+  // 1. Added state for dark mode
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // 2. Added toggle function
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
-    <>
-      <Header />
-      <section style={{ textAlign: "center" }}>
-        <img src="https://zerodha.com/static/images/landing.svg" alt="home-logo" />
-        <h2>Invest in everything</h2>
-        <p>Online platform to invest in stocks, derivatives, mutual funds, ETFs, bonds, and more.</p>
-        <button id="btn">SignUp</button>
-      </section>
-      <Products />
-    </>
+    // 3. Replaced <> with a div that changes class based on state
+    <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+      <Header isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+      </Routes>
+
+    </div>
   )
 }
 
