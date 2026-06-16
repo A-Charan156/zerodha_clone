@@ -4,7 +4,7 @@ function Products({ searchquery }) {
     const [products, setproducts] = useState([])
     // fetch the product data from fakestore api
     useEffect(() => {
-        fetch('http://localhost:3000/products')
+        fetch('https://backendecom-fanm.onrender.com/products')
             .then(response => response.json())
             .then(data => setproducts(data));
     }, []);
